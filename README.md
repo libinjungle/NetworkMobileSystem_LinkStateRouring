@@ -14,6 +14,9 @@ Next, weighted routing table is built on each node using Dijkstra's shortest pat
 
 Finally, I use the weighted routing table on each node to forward packets.
 
-I registered 9 hosts which spread all over the world.
+More details:
+I registered 9 hosts which spread all over the world. Build connectivity map with provided Python script. Create connection sockets using this map. Spawn thread on each node to listen to socket and wait for msg coming. Sends msg from all connections. rev thread receive msg, handle it and if msg is the first time received, flooded it again.
+Build a knownstate list([src, dest, weight]) with latency as weight. Calculate shorted path starting from current node for every other node. This is essentially a weighted routing table. Then forwarding packets from each node to every other node based on this routing table (reading from the routing table and find next hop, so on and so forth).
+
 
 NOTE: Code is writen based on repy, a restricted python version which provides safety when running on remote hosts.
